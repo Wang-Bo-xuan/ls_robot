@@ -1,0 +1,18 @@
+<package>
+  <name>ls_robot_teleop</name>
+  <version>0.0.1</version>
+  <description>ls_robot_telop</description>
+  <maintainer email="xuanbowang@lslidar.com">Xuanbo Wang</maintainer>
+  <license>BSD</license>
+  
+  <author email="xuanbowang@lslidar.com">Xuanbo Wang</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>roscpp</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  
+  <run_depend>roscpp</run_depend>
+  <run_depend>geometry_msgs</run_depend>
+  
+</package>

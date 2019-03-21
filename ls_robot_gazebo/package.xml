@@ -1,0 +1,16 @@
+<package>
+  <name>ls_robot_gazebo</name>
+  <version>0.0.1</version>
+  <description>Gazebo launchers and worlds for ls_robot simulation</description>
+  <maintainer email="xuanbowang@lslidar.com">Boxuan Wang</maintainer>
+  <license>BSD</license>
+  <url type="website">http://www.leishen-lidar.com</url>
+  <author email="xuanbowang@lslidar.com">Boxuan Wangs</author>
+  
+  <buildtool_depend>catkin</buildtool_depend>
+  
+  <run_depend>gazebo_ros</run_depend>
+  <run_depend>robot_state_publisher</run_depend>
+  <run_depend>ls_robot_description</run_depend>
+  <run_depend>xacro</run_depend>
+</package>

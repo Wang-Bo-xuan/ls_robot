@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+
+<robot name="ls_robot_sim" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:macro name="ls_robot_sim">
+          <gazebo reference="${ns}laser_link">
+            <sensor name= "laser" type="ray">
+              <pose>0 0 0 0 0 0</pose>
+              <visualize>false</visualize>
+              <update_rate>10</update_rate>
+              <ray>
+                <scan>
+                  <horizontal>
+                    <samples>360</samples>
+                    <resolution>1</resolution>
+                    <min_angle>-3.14</min_angle>
+                    <max_angle>3.14</max_angle>
+                  </horizontal>
+                </scan>
+                <range>
+                  <min>0.03</min>
+                  <max>30.0</max>
+                  <resolution>0.01</resolution>
+                </range>
+              </ray>
+              <plugin name="laser" filename="libgazebo_ros_laser.so">
+                <topicName>scan</topicName>
+                <frameName>laser_link</frameName>
+              </plugin>
+            </sensor>
+          </gazebo>
+
+          <gazebo>
+            <plugin name="ls_robot_controller" filename="libgazebo_ros_diff_drive.so">
+              <leftJoint>${ns}wheel_left_joint</leftJoint>
+              <rightJoint>${ns}wheel_right_joint</rightJoint>
+              <wheel_separation>.230</wheel_separation>
+	      <wheel_diameter>0.070</wheel_diameter>
+              <publishWheelJointState>true</publishWheelJointState>
+	      <legacyMode>false</legacyMode>
+              <bumper_name>bumpers</bumper_name>
+              <imu_name>imu</imu_name>
+              <commandTopic>cmd_vel</commandTopic>
+              <odometryTopic>odom</odometryTopic>
+            </plugin>
+          </gazebo>
+
+  </xacro:macro>
+</robot>

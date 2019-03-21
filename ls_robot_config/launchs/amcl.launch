@@ -1,0 +1,42 @@
+<launch>
+  <arg name="map_file" default="$(find ls_robot_gazebo)/maps/LS401small.yaml" />
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+
+  <group ns="robot1">
+    <arg name="initial_pose_x" default="0.0"/>
+    <arg name="initial_pose_y" default="0.0"/>
+    <arg name="initial_pose_a" default="0.0"/>
+    <arg name="custom_amcl_launch_file" default="$(find ls_robot_config)/launchs/includes/amcl.launch.xml"/>
+
+    <include file="$(arg custom_amcl_launch_file)">
+      <arg name="robot_name" value="/robot1"/>
+      <arg name="initial_pose_x" value="$(arg initial_pose_x)"/>
+      <arg name="initial_pose_y" value="$(arg initial_pose_y)"/>
+      <arg name="initial_pose_a" value="$(arg initial_pose_a)"/>
+    </include>
+
+    <include file="$(find ls_robot_config)/launchs/includes/move_base.launch.xml">
+      <arg name="robot_name" value="/robot1"/>
+    </include>
+  </group>
+
+  <group ns="robot2">
+    <arg name="initial_pose_x" default="1.0"/>
+    <arg name="initial_pose_y" default="0.0"/>
+    <arg name="initial_pose_a" default="0.0"/>
+    <arg name="custom_amcl_launch_file" default="$(find ls_robot_config)/launchs/includes/amcl.launch.xml"/>
+
+    <include file="$(arg custom_amcl_launch_file)">
+      <arg name="robot_name" value="/robot2"/>
+      <arg name="initial_pose_x" value="$(arg initial_pose_x)"/>
+      <arg name="initial_pose_y" value="$(arg initial_pose_y)"/>
+      <arg name="initial_pose_a" value="$(arg initial_pose_a)"/>
+    </include>
+
+    <include file="$(find ls_robot_config)/launchs/includes/move_base.launch.xml">
+      <arg name="robot_name" value="/robot2"/>
+    </include>
+  </group>
+ <node name="rviz" pkg="rviz" type="rviz"
+   args="-d $(find ls_robot_config)/rvizs/nav.rviz"/>
+</launch>

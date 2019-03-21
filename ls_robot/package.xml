@@ -1,0 +1,18 @@
+
+<package>
+  <name>ls_robot</name>
+  <version>0.0.1</version>
+  <description>
+    A robot belong Leishen(ShenZhen) CO.Td on ROS;
+  </description>
+  <author>Boxuan Wang</author>
+  <maintainer email="xuanbowang@lslidar.com">Boxuan Wang</maintainer>
+  <license>BSD</license>
+  <url type="website">http://www.leishen-lidar.com</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+</package>

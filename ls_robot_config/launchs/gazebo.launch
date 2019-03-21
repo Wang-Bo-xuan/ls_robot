@@ -1,0 +1,14 @@
+<launch>
+  <arg name="gui"        default="true"/>
+  <arg name="world_file" default="$(find ls_robot_gazebo)/worlds/LS401.world"/>
+  <param name="/use_sim_time" value="true" />
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="use_sim_time" value="true"/>
+    <arg name="debug" value="false"/>
+    <arg name="gui" value="$(arg gui)" />
+    <arg name="world_name" value="$(arg world_file)"/>
+  </include>
+
+  <include file="$(find ls_robot_config)/launchs/robots.launch"/>
+</launch>

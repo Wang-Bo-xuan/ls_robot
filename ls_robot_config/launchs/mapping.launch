@@ -1,0 +1,7 @@
+<launch>
+  <arg name="custom_gmapping_launch_file" default="$(find ls_robot_config)/launchs/includes/ls_robot_mapping.launch.xml"/>
+
+  <include file="$(arg custom_gmapping_launch_file)"/>
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d '$(find ls_robot_config)/rvizs/mapping.rviz'" />
+</launch>

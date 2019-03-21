@@ -1,0 +1,14 @@
+<package>
+  <name>ls_robot_config</name>
+  <version>0.0.1</version>
+  <description>
+     A 3d model of ls_robot;
+  </description>
+  <author email="xuanbowang@lslidar.com">Boxuan Wang</author>
+  <maintainer email="xuanbowang@lslidar.com">Boxuan Wang</maintainer>
+  <license>BSD</license>
+  <url type="website">http://www.leishen-lidar.comn</url>
+  
+  <buildtool_depend>catkin</buildtool_depend>
+
+</package>
